@@ -31,5 +31,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'
-
+    implementation 'com.ebanx:swipe-button:0.4.0'
+    implementation 'in.shadowfax:proswipebutton:1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
 }

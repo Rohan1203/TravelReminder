@@ -35,10 +35,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
-public class MainActivity extends FragmentActivity implements OnMapReadyCallback
-//        LocationListener,GoogleApiClient.ConnectionCallbacks,
-//        GoogleApiClient.OnConnectionFailedListener
-       {
+public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
+
            Location currentLocation;
            FusedLocationProviderClient fusedLocationProviderClient;
            private static final int REQUEST_CODE = 101;
@@ -48,10 +46,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                setContentView(R.layout.activity_main);
                fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
                fetchLocation();
-
-               ProgressBar progressBar1 = findViewById(R.id.mapProgressBar);
-               progressBar1.setProgress(100);
-               progressBar1.setMax(100);
 
            }
            private void fetchLocation() {
@@ -93,108 +87,4 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                        break;
                }
            }
-       }
-
-   // GoogleMap map;
-//   private GoogleMap mMap;
-//    Location mLastLocation;
-//    Marker mCurrLocationMarker;
-//    GoogleApiClient mGoogleApiClient;
-//    LocationRequest mLocationRequest;
-//
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
-//
-//        mapFragment.getMapAsync(this);
-//
-//    }
-//
-//    @Override
-//    public void onMapReady(GoogleMap googleMap) {
-////        map = googleMap;
-////        LatLng odisha = new LatLng(20.560824, 86.396657);
-////        map.addMarker(new MarkerOptions().position(odisha).title("Odisha"));
-////        map.moveCamera(CameraUpdateFactory.newLatLng(odisha));
-//
-//        mMap = googleMap;
-//
-//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if (ContextCompat.checkSelfPermission(this,
-//                    Manifest.permission.ACCESS_FINE_LOCATION)
-//                    == PackageManager.PERMISSION_GRANTED) {
-//                buildGoogleApiClient();
-//                mMap.setMyLocationEnabled(true);
-//            }
-//        }
-//        else {
-//            buildGoogleApiClient();
-//            mMap.setMyLocationEnabled(true);
-//        }
-//
-//    }
-//    protected synchronized void buildGoogleApiClient() {
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .addConnectionCallbacks(this)
-//                .addOnConnectionFailedListener(this)
-//                .addApi(LocationServices.API).build();
-//        mGoogleApiClient.connect();
-//    }
-//
-//    @Override
-//    public void onConnected(Bundle bundle) {
-//
-//        mLocationRequest = new LocationRequest();
-//        mLocationRequest.setInterval(1000);
-//        mLocationRequest.setFastestInterval(1000);
-//        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
-//        if (ContextCompat.checkSelfPermission(this,
-//                Manifest.permission.ACCESS_FINE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED) {
-//            LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
-//        }
-//
-//    }
-//
-//    @Override
-//    public void onConnectionSuspended(int i) {
-//
-//    }
-//
-//    @Override
-//    public void onLocationChanged(Location location) {
-//
-//        mLastLocation = location;
-//        if (mCurrLocationMarker != null) {
-//            mCurrLocationMarker.remove();
-//        }
-//        //Place current location marker
-//        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        markerOptions.position(latLng);
-//        markerOptions.title("Current Position");
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-//        mCurrLocationMarker = mMap.addMarker(markerOptions);
-//
-//        //move map camera
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-//        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-//
-//        //stop location updates
-//        if (mGoogleApiClient != null) {
-//            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
-//        }
-//
-//    }
-//
-//    @Override
-//    public void onConnectionFailed(ConnectionResult connectionResult) {
-//
-//    }
-//
-//}
+}
